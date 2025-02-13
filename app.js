@@ -53,7 +53,7 @@ app.post("/users", async (req, res) => {
         password: hasshedPassword
     })
     await user.save();
-    res.redirect("/");
+    res.redirect("/login.html");
 })
 
 //login route

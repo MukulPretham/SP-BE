@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="./CSS/section.css">
     <link rel="stylesheet" href="./CSS/styles.css">
 </head>
+
 <body>
     <nav>
         <div class="nav">
@@ -50,7 +52,7 @@
         <section>
             <h2 class="playlist-h2">Spotify Playlists</h2>
             <div class="playlist">
-            
+
                 <div class="card">
                     <div class="card-img">
                         <img class="img" src="playlsit-imgs/p1.jpeg" alt="">
@@ -167,6 +169,15 @@
             <input min="0" max="10" class="volSeek" type="range" step="0.2">
         </div>
     </div>
-    <script src="./JS/script2.js"></script>
+    <!-- <script src="./JS/script2.js"></script> -->
+    <script>
+        document.querySelector(".signIn-button").addEventListener("click", (e) => {
+            window.location.href = "/signUp.html"
+        })
+        document.querySelector(".logIn").addEventListener("click", (e) => {
+            window.location.href = "/login.html"
+        })
+    </script>
 </body>
+
 </html>
