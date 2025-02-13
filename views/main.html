@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    nav{
+        display: flex;
+        justify-content: flex-end;
+    }
+</style>
+<body>
+    <nav>
+        <button class="logout">LogOut</button>
+    </nav>
+    <p>This is the main page thank you for creating a new account</p>
+    <script>
+        document.querySelector(".logout").addEventListener("click",(e)=>{
+            window.location.href = "/logOut";
+        })
+    </script>
+</body>
+</html>
