@@ -7,6 +7,11 @@ import bcrypt from "bcrypt";
 import session from "express-session";
 import MongoStore from "connect-mongo";
 
+//routes
+import playlists from "./routes/playlists.js";
+import main from "./routes/main.js";
+
+//middlewares
 let app = express();
 app.use(express.static("public"));
 dotenv.config();
@@ -39,6 +44,9 @@ let auth = (req, res, next) => {
     next();
 }
 
+//route middleware
+app.use("/playlists",playlists)
+app.use("/main.html",main);
 
 //SignUp route.
 app.post("/users", async (req, res) => {
@@ -70,7 +78,7 @@ app.post("/login", async (req, res) => {
     //sessions setup
     req.session.user = { userID: currUser._id, username: currUser.username }
 
-    res.sendFile(path.resolve("views/main.html"));
+    res.redirect("/main.html");
 })
 
 //logOut route
@@ -84,9 +92,11 @@ app.get("/logOut", (req, res) => {
     })
 })
 
-app.get("/main.html", auth, (req, res) => {
-    res.sendFile(path.resolve("/views/main.html"));
-});
+
+
+// app.get("/main.html", auth, (req, res) => {
+//     res.sendFile(path.resolve("/views/main.html"));
+// });
 
 app.listen(3000, () => {
     console.log("server is active");

@@ -1,21 +1,21 @@
-document.querySelector(".logIn").addEventListener("click",(e)=>{
+document.querySelector(".logIn").addEventListener("click", (e) => {
     window.location.href = "/"
 })
-document.querySelectorAll(".card").forEach((e)=>{
-    e.addEventListener("click",(E)=>{
+document.querySelectorAll(".card").forEach((e) => {
+    e.addEventListener("click", (E) => {
         window.location.href = "/main.html/playlists"
     })
 })
 function getSongs() {
-    let url1 = "https://pagalfree.com/musics/128-Kissik%20-%20Pushpa%202%20The%20Rule%20128%20Kbps.mp3"
-    let url2 = "https://pagalfree.com/musics/128-Bhool%20Bhulaiyaa%203%20-%20Title%20Track%20(Feat.%20Pitbull)%20-%20Bhool%20Bhulaiyaa%203%20128%20Kbps.mp3"
-    let url3 = "https://pagalfree.com/musics/128-Aaj%20Ki%20Raat%20-%20Stree%202%20128%20Kbps.mp3"
-    let url4 = "https://pagalfree.com/musics/128-Aayi%20Nai%20-%20Stree%202%20128%20Kbps.mp3"
-    let url5 = "https://pagalfree.com/musics/128-Mere%20Mehboob%20Mere%20Sanam%20-%20Bad%20Newz%20128%20Kbps.mp3"
-    let links = [url1,url2,url3,url4,url5];
+    let url1 = "https://pagalfree.com/musics/128-Pushpa%20Pushpa%20-%20Pushpa%202%20The%20Rule%20128%20Kbps.mp3"
+    let url2 = "https://pagalfree.com/musics/128-Apna%20Bana%20Le%20-%20Bhediya%20128%20Kbps.mp3"
+    let url3 = "https://pagalfree.com/musics/128-Kesariya%20-%20Brahmastra%20128%20Kbps.mp3"
+    let url4 = "https://pagalfree.com/musics/128-Jai%20Shri%20Ram%20-%20Adipurush%20128%20Kbps.mp3"
+    let url5 = "https://pagalfree.com/musics/128-Zinda%20Banda%20-%20Jawan%20128%20Kbps.mp3"
+    let links = [url1, url2, url3, url4, url5];
     let songs = [];
     for (const element of links) {
-        songs.push(element.split("128-")[1].replaceAll("%20"," ").split("128 Kbps.mp3")[0]);
+        songs.push(element.split("128-")[1].replaceAll("%20", " ").split("128 Kbps.mp3")[0]);
         // songs.push(element.href);
     }
     return songs;
@@ -23,12 +23,12 @@ function getSongs() {
 
 //Returns array, consisting .mp3 links of the songs.
 function getSONGS() {
-    let url1 = "https://pagalfree.com/musics/128-Kissik%20-%20Pushpa%202%20The%20Rule%20128%20Kbps.mp3"
-    let url2 = "https://pagalfree.com/musics/128-Bhool%20Bhulaiyaa%203%20-%20Title%20Track%20(Feat.%20Pitbull)%20-%20Bhool%20Bhulaiyaa%203%20128%20Kbps.mp3"
-    let url3 = "https://pagalfree.com/musics/128-Aaj%20Ki%20Raat%20-%20Stree%202%20128%20Kbps.mp3"
-    let url4 = "https://pagalfree.com/musics/128-Aayi%20Nai%20-%20Stree%202%20128%20Kbps.mp3"
-    let url5 = "https://pagalfree.com/musics/128-Mere%20Mehboob%20Mere%20Sanam%20-%20Bad%20Newz%20128%20Kbps.mp3"
-    let links = [url1,url2,url3,url4,url5];
+    let url1 = "https://pagalfree.com/musics/128-Pushpa%20Pushpa%20-%20Pushpa%202%20The%20Rule%20128%20Kbps.mp3"
+    let url2 = "https://pagalfree.com/musics/128-Apna%20Bana%20Le%20-%20Bhediya%20128%20Kbps.mp3"
+    let url3 = "https://pagalfree.com/musics/128-Kesariya%20-%20Brahmastra%20128%20Kbps.mp3"
+    let url4 = "https://pagalfree.com/musics/128-Jai%20Shri%20Ram%20-%20Adipurush%20128%20Kbps.mp3"
+    let url5 = "https://pagalfree.com/musics/128-Zinda%20Banda%20-%20Jawan%20128%20Kbps.mp3"
+    let links = [url1, url2, url3, url4, url5];
     let SONGS = [];
     for (const element of links) {
         SONGS.push(element);
@@ -52,7 +52,7 @@ async function main() {
         let songOL = document.querySelector(".songList").getElementsByTagName("ol")[0];
         songOL.innerHTML = songOL.innerHTML + `<div class="playNow">
                         <li>${element}</li>
-                        <img class="hover" src="./logos/play-song.svg" alt="">
+                        <img class="hover" src="/logos/play-song.svg" alt="">
                     </div>`;
     }
 
@@ -62,11 +62,11 @@ async function main() {
     let currentIndex = null;
     let seekBar = document.querySelector(".seekBar");
     let volSeek = document.querySelector(".volSeek");
-    buttons.forEach((button,index)=>{
+    buttons.forEach((button, index) => {
         //Playing Song.
-        button.addEventListener("click",()=>{
+        button.addEventListener("click", () => {
             currentIndex = index;
-            if(currentAudio){
+            if (currentAudio) {
                 currentAudio.pause();
                 currentAudio.currentTime = 0;
             }
@@ -75,9 +75,9 @@ async function main() {
             currentAudio = new Audio(SONGS[currentIndex]);
             currentAudio.play();
             playing = true;
-            if(playing){
+            if (playing) {
                 let play = document.querySelector(".PLAY").getElementsByTagName("img")[0];
-                play.src = "./logos/pause.svg";
+                play.src = "/logos/pause.svg";
             }
 
             //Adding background image of the current song.
@@ -105,28 +105,28 @@ async function main() {
     })
 
     let play = document.querySelector(".play-btn");
-    play.addEventListener("click",()=>{
-        if(playing){
+    play.addEventListener("click", () => {
+        if (playing) {
             currentAudio.pause();
             playing = false;
             let play = document.querySelector(".PLAY").getElementsByTagName("img")[0];
-            play.src = "./logos/play.svg";
-        }else{
+            play.src = "/logos/play.svg";
+        } else {
             currentAudio.play();
             playing = true;
             let play = document.querySelector(".PLAY").getElementsByTagName("img")[0];
-            play.src = "./logos/pause.svg";
+            play.src = "/logos/pause.svg";
         }
     })
 
     let next = document.querySelector(".next");
-    next.addEventListener("click",()=>{
-        if(currentIndex == SONGS.length-1){
+    next.addEventListener("click", () => {
+        if (currentIndex == SONGS.length - 1) {
             currentIndex = 0;
-        }else{
+        } else {
             currentIndex++;
         }
-        if(currentAudio){
+        if (currentAudio) {
             currentAudio.pause();
             currentAudio.currentTime = 0;
         }
@@ -157,13 +157,13 @@ async function main() {
     })
 
     let prev = document.querySelector(".prev");
-    prev.addEventListener("click",()=>{
-        if(currentIndex == 0){
+    prev.addEventListener("click", () => {
+        if (currentIndex == 0) {
             currentIndex = SONGS.length - 1;
-        }else{
+        } else {
             currentIndex--;
         }
-        if(currentAudio){
+        if (currentAudio) {
             currentAudio.pause();
             currentAudio.currentTime = 0;
         }
@@ -192,7 +192,7 @@ async function main() {
         // bg.style.backgroundImage = `url(${BGS[currentIndex]})`;
         // bg.style.backgroundSize = "cover";
     })
-    
+
     // we can change the currentTime of the song by draging
     seekBar.addEventListener("input", (e) => {
         if (currentAudio) {
@@ -212,18 +212,18 @@ async function main() {
 
     //Volume adjusting.
 
-    volSeek.addEventListener("input",(e)=>{
-        if(currentAudio){
-            currentAudio.volume = (e.target.value)/10;
+    volSeek.addEventListener("input", (e) => {
+        if (currentAudio) {
+            currentAudio.volume = (e.target.value) / 10;
         }
     })
 
-    setInterval(()=>{
+    setInterval(() => {
         if (currentAudio.currentTime >= currentAudio.duration) {
             document.querySelector(".next").click();
             currentAudio.play();
         }
-    },100)
+    }, 100)
 
 }
 main();
@@ -232,13 +232,13 @@ let ham = false;
 //setting up hamburger feature
 let hamBurger = document.querySelector(".hamburger");
 let aside = document.getElementsByTagName("aside")[0];
-hamBurger.addEventListener("click",()=>{
-    if( aside.style.left == "-100%"){
+hamBurger.addEventListener("click", () => {
+    if (aside.style.left == "-100%") {
         aside.style.left = "0";
         ham = true;
         let hamLogo = document.querySelector(".hamburger");
         hamLogo.src = "./logos/hamClose.svg"
-    }else{
+    } else {
         aside.style.left = "-100%";
         ham = false;
         let hamLogo = document.querySelector(".hamburger");
