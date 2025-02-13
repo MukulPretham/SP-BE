@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import path from "path";
 import {User} from "./models/User.js"
+import bcrypt from "bcrypt";
 
 let app = express();
 app.use(express.static("public"));
@@ -21,9 +22,15 @@ app.get("/",(req,res)=>{
 
 //SignUp route.
 app.post("/users",async(req,res)=>{
+    //check for existing username.
+    let exist = await User.findOne({username: req.body.username});
+    if(exist){
+        return res.send("User already exists");
+    }
+    let hasshedPassword = await bcrypt.hash(req.body.password,10);
     let user = new User({
         username: req.body.username,
-        password: req.body.password
+        password: hasshedPassword
     })
     await user.save();
     res.redirect("/");
@@ -32,13 +39,17 @@ app.post("/users",async(req,res)=>{
 //login route
 app.post("/login",async(req,res)=>{
     let currUser = await User.findOne({username: req.body.username});
-    console.log(currUser.password)
-    if(!(req.body.password == currUser.password)){
-        return res.send("invalid");
-    }else{
-        res.redirect("/main.html");
+    if(!currUser){
+        return res.send("username does'nt exist");
     }
-    
+    let isMatch = await bcrypt.compare(req.body.password,currUser.password);
+
+    if(!isMatch){
+        return res.send("Invalid password");
+    }
+
+    res.redirect("/main.html");
+
 })
 
 app.listen(3000,()=>{
