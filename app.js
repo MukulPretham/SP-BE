@@ -39,12 +39,6 @@ let auth = (req, res, next) => {
     next();
 }
 
-//Home routes.
-app.get("/", (req, res) => {
-    return res.sendFile(path.resolve("views/index.html"));
-})
-
-
 
 //SignUp route.
 app.post("/users", async (req, res) => {

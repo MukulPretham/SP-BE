@@ -3,16 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="signUpstyles.css">
+    <title>Spotify Login</title>
+    <style>
+        body {
+            background-color: #121212;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #181818;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            width: 300px;
+        }
+        .logo {
+            color: #1DB954;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background: #282828;
+            color: white;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: #1DB954;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            background: #17a74b;
+        }
+    </style>
 </head>
 <body>
-    <form action="/login" method="post">
-        <label for="username">Username</label>
-        <input type="text" id="username" name="username">
-        <label id="password" for="password">password</label>
-        <input type="password" name="password">
-        <button class="log" type="submit" >logIn</button>
-    </form>
+    <div class="container">
+        <div class="logo">Spotify</div>
+        <form action="/login" method="POST">
+            <input type="text" name="username" placeholder="Username or Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit" class="btn">Login</button>
+        </form>
+    </div>
 </body>
 </html>

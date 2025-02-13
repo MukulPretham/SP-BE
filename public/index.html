@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,7 +10,6 @@
     <link rel="stylesheet" href="./CSS/section.css">
     <link rel="stylesheet" href="./CSS/styles.css">
 </head>
-
 <body>
     <nav>
         <div class="nav">
@@ -24,7 +22,8 @@
                 <input class="search-bar" type="text" placeholder="What do you want to play ?">
             </div>
             <div class="nav-end">
-                <span class="logIn pointer">LogOut</span>
+                <button class="signIn-button pointer">Create</button>
+                <span class="logIn pointer">Login</span>
             </div>
         </div>
     </nav>
@@ -51,7 +50,7 @@
         <section>
             <h2 class="playlist-h2">Spotify Playlists</h2>
             <div class="playlist">
-
+            
                 <div class="card">
                     <div class="card-img">
                         <img class="img" src="playlsit-imgs/p1.jpeg" alt="">
@@ -169,11 +168,5 @@
         </div>
     </div>
     <script src="./JS/script2.js"></script>
-    <script>
-        document.querySelector(".logIn").addEventListener("click", (e) => {
-            window.location.href = "/logOut";
-        })
-    </script>
 </body>
-
 </html>

@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200;300;400;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Martel+Sans:wght@200;300;400;600;700;800;900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins";
+}
+:root{
+    --primary-color: rgba(128, 128, 128, 0.16);
+
+}
+body{
+    background-color: black;
+    color: white;
+}
+
+
+
+main{
+    width: 100vw;
+    height: 82vh;
+    display: flex;
+    margin-top: 1px;
+}
+aside{
+    height: 100%;
+    width: 33%;
+    /* border: 2px solid purple; */
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    overflow: auto;
+    z-index: 10;
+}
+section{
+    width: 77%;
+    height: 100%;
+    overflow:auto;
+    scrollbar-color: white;
+    border-radius: 10px;
+    background-color: var(--primary-color);
+    margin-left: 8px;
+}
+/* section div{
+    width: 99%;
+    height: 40%;
+    border: 2px solid orange;
+} */
+
+@media (max-width: 1250px) {
+    /* moving the library to complete ledt for hamburger feature. */
+    aside{
+        position: absolute;
+        left: -100%;
+        top: 8%;
+        height: 68vh;
+        width: 100vw;
+        border: 2px solid snow;
+        transition: all .5s;
+        background-color: black;
+    }
+    /* fllingg up the body width after aside is gone */
+    section{
+        width: 100%;
+    }
+    /* //centering the cards in playlist. */
+    .playlist{
+        justify-content: center;
+    }
+    /* /* decreasing the height if the main and increasing the eight of the playBar */
+    main{
+        height: 70vh;
+    }
+} 
